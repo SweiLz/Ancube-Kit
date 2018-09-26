@@ -1,0 +1,51 @@
+<launch>
+    <arg name="robot_name" default=""/>
+
+    <!-- Lidar type > YDLidarX4, YDLidarG4 -->
+    <arg name="laser_type" default="YDLidarX4"/>
+    <arg name="laser_frame" default="laser_link"/>
+    <arg name="angle_min" default="-180"/>
+    <arg name="angle_max" default="180"/>
+    <arg name="range_min" default="0.12"/>
+    <arg name="range_max" default="10"/>
+
+    <group if="$(eval arg('laser_type') == 'YDLidarX4')">
+        <node name="ydlidar_node" pkg="ydlidar" type="ydlidar_node" output="screen">
+            <param name="port" type="string" value="/dev/ttyLidarX4"/>
+            <param name="baudrate" type="int" value="115200"/>
+            <param name="frame_id" type="string" value="$(arg laser_frame)"/>
+            <param name="samp_rate" type="int" value="5"/>
+            <param name="frequency" type="double" value="7"/>
+            <param name="angle_min" type="double" value="$(arg angle_min)"/>
+            <param name="angle_max" type="double" value="$(arg angle_max)"/>
+            <param name="range_min" type="double" value="$(arg range_min)"/>
+            <param name="range_max" type="double" value="$(arg range_max)"/>
+
+            <param name="angle_fixed" type="bool" value="true"/>
+            <param name="low_exposure" type="bool" value="false"/>
+            <param name="heartbeat" type="bool" value="false"/>
+            <param name="resolution_fixed" type="bool" value="true"/>
+            <param name="ignore_array" type="string" value=""/>
+        </node>
+    </group>
+    <group if="$(eval arg('laser_type') == 'YDLidarG4')">
+        <node name="ydlidar_node" pkg="ydlidar" type="ydlidar_node" output="screen">
+            <param name="port" type="string" value="/dev/ttyLidarG4"/>
+            <param name="baudrate" type="int" value="115200"/>
+            <param name="frame_id" type="string" value="$(arg laser_frame)"/>
+            <param name="samp_rate" type="int" value="9"/>
+            <param name="frequency" type="double" value="7"/>
+            <param name="angle_min" type="double" value="$(arg angle_min)"/>
+            <param name="angle_max" type="double" value="$(arg angle_max)"/>
+            <param name="range_min" type="double" value="$(arg range_min)"/>
+            <param name="range_max" type="double" value="$(arg range_max)"/>
+
+            <param name="angle_fixed" type="bool" value="true"/>
+            <param name="low_exposure" type="bool" value="false"/>
+            <param name="heartbeat" type="bool" value="false"/>
+            <param name="resolution_fixed" type="bool" value="true"/>
+            <param name="ignore_array" type="string" value=""/>
+        </node>
+    </group>
+
+</launch>

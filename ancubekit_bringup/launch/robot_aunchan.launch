@@ -1,0 +1,40 @@
+<launch>
+
+    <arg name="robot_name" default="aunchan"/>
+
+    <!-- Robot parameters > STM32ROS, Serial-->
+    <arg name="control_type" default="STM32ROS"/>
+    <arg name="wheel_separation" default="0.5"/>
+    <arg name="wheel_radius" default="0.1"/>
+
+    <!-- Lidar type > YDLidarX4, YDLidarG4 -->
+    <arg name="laser_type" default="YDLidarX4"/>
+    <arg name="angle_min" default="-180"/>
+    <arg name="angle_max" default="180"/>
+    <arg name="range_min" default="0.15"/>
+    <arg name="range_max" default="5.0"/>
+
+    <!-- Description TF -->
+    <include file="$(find ancubekit_bringup)/launch/ancubekit_model.launch">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
+
+    <!-- Core STM32F103-->
+    <include file="$(find ancubekit_bringup)/launch/ancubekit_core.launch">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+        <arg name="control_type" value="$(arg control_type)"/>
+        <arg name="wheel_separation" value="$(arg wheel_separation)"/>
+        <arg name="wheel_radius" value="$(arg wheel_radius)"/>
+    </include>
+
+    <!-- Lidar YDLidarX4 -->
+    <include file="$(find ancubekit_bringup)/launch/ancubekit_lidar.launch">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+        <arg name="laser_type" value="$(arg laser_type)"/>
+        <arg name="angle_min" value="$(arg angle_min)"/>
+        <arg name="angle_max" value="$(arg angle_max)"/>
+        <arg name="range_min" value="$(arg range_min)"/>
+        <arg name="range_max" value="$(arg range_max)"/>
+    </include>
+
+</launch>

@@ -1,0 +1,12 @@
+<launch>
+
+    <arg name="robot_name" default="aunchan"/>
+    <arg name="urdf_file" default="$(find xacro)/xacro '$(find ancubekit_description)/urdf/$(arg robot_name).xacro'"/>
+    <param name="robot_description" command="$(arg urdf_file)"/>
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+        <param name="publish_frequency" value="20"/>
+        <param name="use_tf_static" value="false"/>
+    </node>
+
+</launch>

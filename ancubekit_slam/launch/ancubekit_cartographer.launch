@@ -1,0 +1,8 @@
+<launch>
+    <arg name="configuration_basename" default="aunchan.lua"/>
+    <node pkg="cartographer_ros" type="cartographer_node" name="cartographer_node" args="-configuration_directory $(find ancubekit_slam)/cfg
+              -configuration_basename $(arg configuration_basename)" output="screen">
+    </node>
+    <node pkg="cartographer_ros" type="cartographer_occupancy_grid_node" name="cartographer_occupancy_grid_node" args="-resolution 0.01" />
+    <node pkg="ancubekit_slam" type="flat_world_imu_node" name="flat_world_imu_node" output="screen"/>
+</launch>

@@ -1,0 +1,14 @@
+#http://www.reactivated.net/writing_udev_rules.html
+
+#sudo cp 99-ancubekit.rules /etc/udev/rules.d/
+#sudo udevadm control --reload-rules
+#sudo udevadm trigger
+
+# STM32 Base
+KERNEL=="ttyUSB*", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", MODE:="0777", SYMLINK="ttySTM32"
+#KERNEL=="ttyACM*", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", MODE:="0777", SYMLINK="ttySTM32"
+
+# YDLidar X4,G4
+KERNEL=="ttyUSB*", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", GROUP:="dialout", MODE:="0777", SYMLINK="ttyLidarX4"
+KERNEL=="ttyACM*", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", GROUP:="dialout", MODE:="0777", SYMLINK="ttyLidarG4"
+

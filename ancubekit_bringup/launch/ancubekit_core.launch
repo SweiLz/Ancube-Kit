@@ -1,0 +1,27 @@
+<launch>
+    <arg name="robot_name" default=""/>
+
+    <!-- Control type -->
+    <!-- STM32ROS -> ROS protocol -->
+    <!-- Serial -> Serial protocol -->
+    <arg name="control_type" default="STM32ROS"/>
+
+    <arg name="wheel_separation" default="0"/>
+    <arg name="wheel_radius" default="0"/>
+
+    <group if="$(eval arg('control_type') == 'STM32ROS')">
+        <arg name="port" default="/dev/ttyUSB0"/>
+        <arg name="baud" default="250000"/>
+        <!-- <arg name="imu_topic" default="attitude"/> -->
+        <!-- <arg name="cmd_vel_topic" default="cmd_vel"/> -->
+        <node name="ancubekit_core" pkg="rosserial_python" type="serial_node.py" output="screen">
+            <param name="port" value="$(arg port)"/>
+            <param name="baud" value="$(arg baud)"/>
+            <!-- <remap from="attitude" to="$(arg imu_topic)"/> -->
+            <!-- <remap from="cmd_vel" to="$(arg cmd_vel_topic)"/> -->
+        </node>
+    </group>
+    <group if="$(eval arg('control_type') == 'Serial')">
+
+    </group>
+</launch>

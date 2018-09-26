@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot name="aunchan_robot" 
+    xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <link name="base_footprint"/>
+
+    <joint name="base_fixed" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="base_footprint"/>
+        <child link="base_link"/>
+    </joint>
+    <link name="base_link"/>
+
+    <joint name="laser_fixed" type="fixed">
+        <origin xyz="0.01 0 0.19" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="laser_link"/>
+    </joint>
+    <link name="laser_link"/>
+
+    <joint name="imu_fixed" type="fixed">
+        <origin xyz="0.02 -0.015 0.1" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="imu_link"/>
+    </joint>
+    <link name="imu_link"/>
+
+</robot>
