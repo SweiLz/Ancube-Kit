@@ -2,10 +2,10 @@
 
     <arg name="robot_name" default="aunchan"/>
 
-    <!-- Robot parameters > STM32ROS, Serial-->
-    <arg name="control_type" default="STM32ROS"/>
-    <arg name="wheel_separation" default="0.5"/>
-    <arg name="wheel_radius" default="0.1"/>
+    <!-- Robot parameters -->
+    <arg name="control_type" default="ROSSerial"/>
+    <arg name="port" default="/dev/serial0"/>
+    <arg name="baud" default="250000"/>
 
     <!-- Lidar type > YDLidarX4, YDLidarG4 -->
     <arg name="laser_type" default="YDLidarX4"/>
@@ -22,9 +22,8 @@
     <!-- Core STM32F103-->
     <include file="$(find ancubekit_bringup)/launch/ancubekit_core.launch">
         <arg name="robot_name" value="$(arg robot_name)"/>
+        <arg name="baud" value="$(arg baud)"/>
         <arg name="control_type" value="$(arg control_type)"/>
-        <arg name="wheel_separation" value="$(arg wheel_separation)"/>
-        <arg name="wheel_radius" value="$(arg wheel_radius)"/>
     </include>
 
     <!-- Lidar YDLidarX4 -->
