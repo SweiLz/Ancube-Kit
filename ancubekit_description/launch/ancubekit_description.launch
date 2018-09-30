@@ -5,7 +5,7 @@
     <param name="robot_description" command="$(arg urdf_file)"/>
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
-        <param name="publish_frequency" value="20"/>
+        <param name="publish_frequency" value="10"/>
         <param name="use_tf_static" value="false"/>
     </node>
 

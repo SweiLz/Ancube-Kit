@@ -10,7 +10,7 @@
     <arg name="range_max" default="10"/>
 
     <group if="$(eval arg('laser_type') == 'YDLidarX4')">
-        <node name="ydlidar_node" pkg="ydlidar" type="ydlidar_node" output="screen">
+        <node name="ancubekit_lidar" pkg="ydlidar" type="ydlidar_node" output="screen">
             <param name="port" type="string" value="/dev/ttyLidarX4"/>
             <param name="baudrate" type="int" value="115200"/>
             <param name="frame_id" type="string" value="$(arg laser_frame)"/>
@@ -29,7 +29,7 @@
         </node>
     </group>
     <group if="$(eval arg('laser_type') == 'YDLidarG4')">
-        <node name="ydlidar_node" pkg="ydlidar" type="ydlidar_node" output="screen">
+        <node name="ancubekit_lidar" pkg="ydlidar" type="ydlidar_node" output="screen">
             <param name="port" type="string" value="/dev/ttyLidarG4"/>
             <param name="baudrate" type="int" value="115200"/>
             <param name="frame_id" type="string" value="$(arg laser_frame)"/>

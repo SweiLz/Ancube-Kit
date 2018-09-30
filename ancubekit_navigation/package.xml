@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>ancubekit_navigation</name>
+  <version>1.0.0</version>
+  <description>ROS packages Ancube-Kit navigation</description>
+  <license>BSD</license>
+  <author email="sweilz.w@gmail.com">Liews Wuttipat</author>
+  <maintainer email="sweilz.w@gmail.com">Liews Wuttipat</maintainer>
+
+  <!-- <url type="website">http://wiki.ros.org/leelawadee</url> -->
+  <!-- <url type="repository">https://github.com/SweiLz/Ancube-Kit</url>  -->
+  <!-- <url type="bugtracker">https://github.com/SweiLz/Ancube-Kit/issues</url>  -->
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>amcl</build_depend>
+  <build_depend>map_server</build_depend>
+  <build_depend>move_base</build_depend>
+  <build_export_depend>amcl</build_export_depend>
+  <build_export_depend>map_server</build_export_depend>
+  <build_export_depend>move_base</build_export_depend>
+  <exec_depend>amcl</exec_depend>
+  <exec_depend>map_server</exec_depend>
+  <exec_depend>move_base</exec_depend>
+
+</package>

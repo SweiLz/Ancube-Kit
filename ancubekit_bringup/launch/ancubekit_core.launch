@@ -10,7 +10,7 @@
     <arg name="wheel_radius" default="0"/>
 
     <group if="$(eval arg('control_type') == 'STM32ROS')">
-        <arg name="port" default="/dev/ttyUSB0"/>
+        <arg name="port" default="/dev/serial0"/>
         <arg name="baud" default="250000"/>
         <!-- <arg name="imu_topic" default="attitude"/> -->
         <!-- <arg name="cmd_vel_topic" default="cmd_vel"/> -->
