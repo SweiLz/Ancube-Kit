@@ -15,3 +15,4 @@ cd ~/catkin_ws/src
 git clone https://github.com/EAIBOT/ydlidar.git
 ```
 
+rosdep install --from-paths src --ignore-src --rosdistro=kinetic -y

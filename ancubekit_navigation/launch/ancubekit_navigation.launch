@@ -1,8 +1,11 @@
 <launch>
-    <arg name="map_file" default="$(find ancubekit_navigation)/maps/test_room1.yaml"/>
+    <arg name="map_file" default="$(find ancubekit_navigation)/maps/test_room2.yaml"/>
     <!-- Map server -->
     <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
 
     <!-- AMCL -->
     <include file="$(find ancubekit_navigation)/launch/ancubekit_amcl.launch"/>
+
+    <!-- Move base -->
+    <include file="$(find ancubekit_navigation)/launch/ancubekit_movebase.launch"/>
 </launch>

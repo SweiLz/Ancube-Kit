@@ -1,0 +1,31 @@
+<launch>
+    <!-- Move base -->
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+        <!-- <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+        <rosparam file="$(find ancubekit_navigation)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find ancubekit_navigation)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find ancubekit_navigation)/param/local_costmap_params.yaml" command="load" />
+        <rosparam file="$(find ancubekit_navigation)/param/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find ancubekit_navigation)/param/move_base_params.yaml" command="load" />
+        <rosparam file="$(find ancubekit_navigation)/param/dwa_local_planner_params.yaml" command="load" /> -->
+
+
+        <!-- global planner -->
+        <param name="base_global_planner" value="global_planner/GlobalPlanner" />
+        <rosparam file="$(find ancubekit_navigation)/cfg/global_planner_params.yaml" command="load" />
+        <!-- local planner -->
+        <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
+        <rosparam file="$(find ancubekit_navigation)/cfg/dwa_local_planner_params.yaml" command="load"/>
+        <!-- params for move_base -->
+        <param name="planner_frequency" value="0.0" />
+        <param name="controller_frequency" value="2.0" />
+        <param name="controller_patience" value="3.0" />
+        <!-- <param name="planner_patience" value="15.0" /> -->
+        <param name="oscillation_timeout" value="10.0" />
+        <param name="oscillation_distance" value="0.05" />
+        <param name="clearing_rotation_allowed" value="false" />
+        <!-- params for costmap layers -->
+        <rosparam file="$(find ancubekit_navigation)/cfg/local_costmap_params.yaml" command="load"/>
+        <rosparam file="$(find ancubekit_navigation)/cfg/global_costmap_params.yaml" command="load"/>
+    </node>
+</launch>

@@ -15,7 +15,7 @@
             <param name="baudrate" type="int" value="115200"/>
             <param name="frame_id" type="string" value="$(arg laser_frame)"/>
             <param name="samp_rate" type="int" value="5"/>
-            <param name="frequency" type="double" value="7"/>
+            <param name="frequency" type="double" value="5"/>
             <param name="angle_min" type="double" value="$(arg angle_min)"/>
             <param name="angle_max" type="double" value="$(arg angle_max)"/>
             <param name="range_min" type="double" value="$(arg range_min)"/>
