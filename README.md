@@ -16,3 +16,22 @@ git clone https://github.com/EAIBOT/ydlidar.git
 ```
 
 rosdep install --from-paths src --ignore-src --rosdistro=kinetic -y
+
+
+
+
+
+### Time sync
+
+```
+Server$ sudo vi /etc/chrony/chrony.conf
+>> allow 11.11.11
+>> allow 10/8
+Server$ sudo invoke-rc.d chrony restart
+
+Client$ sudo vi /etc/chrony/chrony.conf
+>> server 11.11.11.2
+Client$ sudo invoke-rc.d chrony restart
+
+
+```

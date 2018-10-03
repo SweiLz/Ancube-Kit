@@ -1,7 +1,15 @@
 <launch>
-    <arg name="map_file" default="$(find ancubekit_navigation)/maps/test_room2.yaml"/>
+    <arg name="map_name" default="anman_f1"/>
+    <arg name="map_file" default="$(find ancubekit_navigation)/maps/$(arg map_name).yaml"/>
+    <arg name="open_rviz" default="true"/>
+
     <!-- Map server -->
     <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
+
+    <!-- RViz -->
+    <group if="$(arg open_rviz)">
+        <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find ancubekit_navigation)/cfg/ancubekit_navigation.rviz"/>
+    </group>
 
     <!-- AMCL -->
     <include file="$(find ancubekit_navigation)/launch/ancubekit_amcl.launch"/>

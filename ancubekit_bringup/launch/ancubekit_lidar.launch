@@ -6,16 +6,16 @@
     <arg name="laser_frame" default="laser_link"/>
     <arg name="angle_min" default="-180"/>
     <arg name="angle_max" default="180"/>
-    <arg name="range_min" default="0.12"/>
-    <arg name="range_max" default="10"/>
+    <arg name="range_min" default="0.15"/>
+    <arg name="range_max" default="5"/>
 
     <group if="$(eval arg('laser_type') == 'YDLidarX4')">
         <node name="ancubekit_lidar" pkg="ydlidar" type="ydlidar_node" output="screen">
             <param name="port" type="string" value="/dev/ttyLidarX4"/>
             <param name="baudrate" type="int" value="115200"/>
             <param name="frame_id" type="string" value="$(arg laser_frame)"/>
-            <param name="samp_rate" type="int" value="5"/>
-            <param name="frequency" type="double" value="5"/>
+            <param name="samp_rate" type="int" value="9"/>
+            <param name="frequency" type="double" value="7"/>
             <param name="angle_min" type="double" value="$(arg angle_min)"/>
             <param name="angle_max" type="double" value="$(arg angle_max)"/>
             <param name="range_min" type="double" value="$(arg range_min)"/>

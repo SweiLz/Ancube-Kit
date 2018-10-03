@@ -2,8 +2,12 @@
 <launch>
     <!-- Arguments -->
     <arg name="slam_methods" default="hector" doc="slam type [gmapping, cartographer, hector, karto, frontier_exploration]"/>
+    <arg name="open_rviz" default="true"/>
 
-
+    <group if="$(arg open_rviz)">
+        <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find ancubekit_slam)/cfg/slam_$(arg slam_methods).rviz"/>
+    </group>
+    
     <!-- SLAM: Gmapping, Cartographer, Hector, Karto, Frontier_exploration-->
     <include file="$(find ancubekit_slam)/launch/ancubekit_$(arg slam_methods).launch"/>
 </launch>
