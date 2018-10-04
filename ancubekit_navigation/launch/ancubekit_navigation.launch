@@ -1,5 +1,8 @@
 <launch>
+
+
     <arg name="map_name" default="anman_f1"/>
+
     <arg name="map_file" default="$(find ancubekit_navigation)/maps/$(arg map_name).yaml"/>
     <arg name="open_rviz" default="true"/>
 
@@ -16,4 +19,5 @@
 
     <!-- Move base -->
     <include file="$(find ancubekit_navigation)/launch/ancubekit_movebase.launch"/>
+
 </launch>

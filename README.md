@@ -10,19 +10,18 @@ sudo apt install ros-kinetic-joint-state-publisher
 sudo apt install ros-kinetic-robot-state-publisher
 ```
 
-```
+```bash
 cd ~/catkin_ws/src
 git clone https://github.com/EAIBOT/ydlidar.git
 ```
 
+```bash
 rosdep install --from-paths src --ignore-src --rosdistro=kinetic -y
-
-
-
-
+```
 
 ### Time sync
 
+__At the first time__
 ```
 Server$ sudo vi /etc/chrony/chrony.conf
 >> allow 11.11.11

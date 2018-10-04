@@ -6,10 +6,8 @@
   <license>BSD</license>
   <author email="sweilz.w@gmail.com">Liews Wuttipat</author>
   <maintainer email="sweilz.w@gmail.com">Liews Wuttipat</maintainer>
-
-  <!-- <url type="website">http://wiki.ros.org/leelawadee</url> -->
-  <!-- <url type="repository">https://github.com/SweiLz/Ancube-Kit</url>  -->
-  <!-- <url type="bugtracker">https://github.com/SweiLz/Ancube-Kit/issues</url>  -->
+  <url type="repository">https://github.com/SweiLz/Ancube-Kit</url> 
+  <url type="bugtracker">https://github.com/SweiLz/Ancube-Kit/issues</url> 
 
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>roscpp</build_depend>
