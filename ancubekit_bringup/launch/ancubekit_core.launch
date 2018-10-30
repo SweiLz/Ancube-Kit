@@ -7,11 +7,20 @@
     <arg name="control_type" default="ROSSerial"/>
     <arg name="port" default="/dev/serial0"/>
     <arg name="baud" default="250000"/>
-    <arg name="wheel_separation" default="0"/>
-    <arg name="wheel_radius" default="0"/>
+
+    <arg name="base_id" default="base_footprint"/>
+    <arg name="odom_id" default="odom"/>
+    <arg name="odom_topic" default="/odom"/>
+    <arg name="odom_freq" default="10"/>
+    <arg name="cmd_topic" default="/cmd_vel"/>
+    <arg name="cmd_freq" default="10"/>
+    <arg name="imu_topic" default="/imu"/>
+
+    <arg name="wheel_separation" default="0.47"/>
+    <arg name="wheel_radius" default="0.08"/>
 
     <group if="$(eval arg('control_type') == 'ROSSerial')">
-        <node name="ancubekit_core" pkg="rosserial_python" type="serial_node.py" output="screen">
+        <node name="ancubekit_core_ros" pkg="rosserial_python" type="serial_node.py" output="screen">
             <param name="port" value="$(arg port)"/>
             <param name="baud" value="$(arg baud)"/>
             <param name="enable_imu" value="1"/>
@@ -20,7 +29,22 @@
             <param name="enable_battery" value="1"/>
         </node>
     </group>
-    <group if="$(eval arg('control_type') == 'Serial')">
 
+    <group if="$(eval arg('control_type') == 'Serial')">
+        <node name="ancubekit_core_serial" pkg="ancubekit_bringup" type="base_serial_control.py" output="screen">
+            <param name="port" value="$(arg port)"/>
+            <param name="baud" value="$(arg baud)"/>
+
+            <param name="base_id" value="$(arg base_id)"/>
+            <param name="odom_id" value="$(arg odom_id)"/>
+            <param name="odom_topic" value="$(arg odom_topic)"/>
+            <param name="odom_freq" value="$(arg odom_freq)"/>
+            <param name="cmd_topic" value="$(arg cmd_topic)"/>
+            <param name="cmd_freq" value="$(arg cmd_freq)"/>
+            <param name="imu_topic" value="$(arg imu_topic)"/>
+
+            <param name="wheel_separation" value="$(arg wheel_separation)"/>
+            <param name="wheel_radius" value="$(arg wheel_radius)"/>
+        </node>
     </group>
 </launch>

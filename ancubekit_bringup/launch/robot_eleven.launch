@@ -1,0 +1,52 @@
+<launch>
+    <!-- <arg name="linear_vel_max" default="1.0"/>
+    <arg name="linear_vel_step" default="0.05"/>
+    <arg name="angular_vel_max" default="5.0"/>
+    <arg name="angular_vel_step" default="0.2"/> -->
+
+<!-- Description TF -->
+    <include file="$(find ancubekit_bringup)/launch/ancubekit_model.launch">
+        <arg name="robot_name" value="eleven"/>
+    </include>
+
+    <!-- Core STM32F411-->
+    <include file="$(find ancubekit_bringup)/launch/ancubekit_core.launch">
+        <arg name="port" value="/dev/ttyACM0"/>
+        <arg name="baud" value="250000"/>
+        <arg name="control_type" value="ROSSerial"/>
+    </include>
+
+    <!-- Core Base-->
+    <include file="$(find ancubekit_bringup)/launch/ancubekit_core.launch">
+        <arg name="port" value="/dev/ttyUSB0"/>
+        <arg name="baud" value="115200"/>
+        <arg name="control_type" value="Serial"/>
+
+        <arg name="base_id" default="base_footprint"/>
+        <arg name="odom_id" default="odom"/>
+        <arg name="odom_topic" default="/odom"/>
+        <arg name="odom_freq" default="10"/>
+        <arg name="cmd_topic" default="/cmd_vel"/>
+        <arg name="cmd_freq" default="10"/>
+        <arg name="imu_topic" default="/imu"/>
+
+        <arg name="wheel_separation" default="0.47"/>
+        <arg name="wheel_radius" default="0.08"/>
+    </include>
+
+
+    <!-- <node pkg="ancubekit_teleop" name="ancbekit_teleop" type="ancubekit_teleop_key.py" output="screen">
+        <param name="linear_vel_max" value="$(arg linear_vel_max)"/>
+        <param name="angular_vel_max" value="$(arg angular_vel_max)"/>
+        <param name="linear_vel_step" value="$(arg linear_vel_step)"/>
+        <param name="angular_vel_step" value="$(arg angular_vel_step)"/>
+    </node> -->
+    <!-- Lidar YDLidarX4 -->
+    <!-- <include file="$(find ancubekit_bringup)/launch/ancubekit_lidar.launch">
+        <arg name="laser_type" value="YDLidarX4"/>
+        <arg name="angle_min" value="-180"/>
+        <arg name="angle_max" value="180"/>
+        <arg name="range_min" value="0.15"/>
+        <arg name="range_max" value="15.0"/>
+    </include> -->
+</launch>
