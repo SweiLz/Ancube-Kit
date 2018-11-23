@@ -1,0 +1,33 @@
+{
+    "name": "rosserial_mbed", 
+    "repository": {
+        "url": "https://github.com/PabloPL/rosserial_mbed_libs.git", 
+        "type": "git"
+    }, 
+    "platforms": [
+        "atmelsam", 
+        "freescalekinetis", 
+        "nordicnrf51", 
+        "nxplpc", 
+        "siliconlabsefm32", 
+        "ststm32", 
+        "teensy"
+    ], 
+    "frameworks": [
+        "mbed"
+    ], 
+    "version": "8681add838", 
+    "authors": [
+        {
+            "maintainer": false, 
+            "name": "PabloPL", 
+            "url": "https://github.com/PabloPL", 
+            "email": null
+        }
+    ], 
+    "keywords": [
+        "rosserial"
+    ], 
+    "id": 977, 
+    "description": "An implementation of the rosserial protocol for Mbed Platforms"
+}

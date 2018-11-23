@@ -76,14 +76,24 @@ class BaseControl(object):
         #     (self.trans_x - self.wheelSep/2.0*self.rotat_z)/self.wheelRad, -self.MAX_W, self.MAX_W)
         # self.sendWR = self.constrain(
         #     (self.trans_x + self.wheelSep/2.0*self.rotat_z)/self.wheelRad, -self.MAX_W, self.MAX_W)
-        self.sendWL = -(self.trans_x - self.wheelSep /
+        self.sendWL = (self.trans_x - self.wheelSep /
                        2.0*self.rotat_z)/self.wheelRad
-        self.sendWR = (self.trans_x + self.wheelSep /
+        self.sendWR = -(self.trans_x + self.wheelSep /
                        2.0*self.rotat_z)/self.wheelRad
+        # if (self.sendWL > 0) and (self.sendWL<4):
+        #     self.sendWL = 4
+        # elif (self.sendWL < 0) and (self.sendWL>-4):
+        #     self.sendWL = -4
+
+        # if (self.sendWR > 0) and (self.sendWR<4):
+        #     self.sendWR = 4
+        # elif (self.sendWR < 0) and (self.sendWR>-4):
+        #     self.sendWR = -4
 
         speedL = constrain(int(self.sendWL * 10) & 0xFF, 0, 255)
         speedR = constrain(int(self.sendWR * 10) & 0xFF, 0, 255)
-        # rospy.loginfo("#{},{},  {}, {}".format(speedR, speedL,self.vel_wheel_r,self.vel_wheel_l))
+        
+        rospy.loginfo("#{},{},  {}, {}".format(speedR, speedL,self.vel_wheel_r,self.vel_wheel_l))
         
         command = [255,speedR,speedL,254]
         self.serial.write(command)

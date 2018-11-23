@@ -1,12 +1,12 @@
 <launch>
-    <!-- <arg name="linear_vel_max" default="0.2"/>
-    <arg name="linear_vel_step" default="0.02"/>
-    <arg name="angular_vel_max" default="1.2"/>
-    <arg name="angular_vel_step" default="0.15"/> -->
-    <arg name="linear_vel_max" default="1.0"/>
-    <arg name="linear_vel_step" default="0.05"/>
-    <arg name="angular_vel_max" default="5.0"/>
-    <arg name="angular_vel_step" default="0.2"/>
+    <arg name="linear_vel_max" default="0.5"/>
+    <arg name="linear_vel_step" default="0.04"/>
+    <arg name="angular_vel_max" default="2.0"/>
+    <arg name="angular_vel_step" default="0.25"/>
+    <!-- <arg name="linear_vel_max" default="5.0"/>
+    <arg name="linear_vel_step" default="0.1"/>
+    <arg name="angular_vel_max" default="10.0"/>
+    <arg name="angular_vel_step" default="0.5"/> -->
     <node pkg="ancubekit_teleop" name="ancbekit_teleop" type="ancubekit_teleop_key.py" output="screen">
         <param name="linear_vel_max" value="$(arg linear_vel_max)"/>
         <param name="angular_vel_max" value="$(arg angular_vel_max)"/>

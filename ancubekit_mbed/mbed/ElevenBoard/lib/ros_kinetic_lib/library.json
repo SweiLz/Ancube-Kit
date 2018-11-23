@@ -1,0 +1,11 @@
+{
+  "name": "rosserial_mbed",
+  "keywords": "rosserial",
+  "description": "An implementation of the rosserial protocol for Mbed Platforms",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PabloPL/rosserial_mbed_libs.git"
+  },
+  "frameworks": "mbed",
+  "platforms": "*"
+}

@@ -10,11 +10,11 @@
     </include>
 
     <!-- Core STM32F411-->
-    <include file="$(find ancubekit_bringup)/launch/ancubekit_core.launch">
+    <!-- <include file="$(find ancubekit_bringup)/launch/ancubekit_core.launch">
         <arg name="port" value="/dev/ttyACM0"/>
         <arg name="baud" value="250000"/>
         <arg name="control_type" value="ROSSerial"/>
-    </include>
+    </include> -->
 
     <!-- Core Base-->
     <include file="$(find ancubekit_bringup)/launch/ancubekit_core.launch">

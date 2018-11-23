@@ -5,9 +5,10 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
+        - /TF1
         - /TF1/Frames1
       Splitter Ratio: 0.5
-    Tree Height: 363
+    Tree Height: 794
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -56,9 +57,9 @@ Visualization Manager:
       Frames:
         All Enabled: false
         base_footprint:
-          Value: true
-        base_link:
           Value: false
+        base_link:
+          Value: true
         imu_link:
           Value: false
         laser_link:
@@ -66,7 +67,7 @@ Visualization Manager:
         map:
           Value: true
         odom:
-          Value: true
+          Value: false
         scanmatcher_frame:
           Value: false
       Marker Scale: 1
@@ -183,5 +184,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1108
-  X: 852
-  Y: 199
+  X: 812
+  Y: 27
